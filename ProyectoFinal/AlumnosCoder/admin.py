@@ -1,3 +1,4 @@
 from django.contrib import admin
+from AlumnosCoder.models import EntradaDeBlog
 
-# Register your models here.
+admin.site.register(EntradaDeBlog)
