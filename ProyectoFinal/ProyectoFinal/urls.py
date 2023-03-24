@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AlumnosCoder.views import index
+from AlumnosCoder.views import index, Entradalist
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index, name="inicio")
+    path('', index, name="inicio"),
+    path('entradas/listado', Entradalist.as_view(), name = "entradadeblog_list")
 ]

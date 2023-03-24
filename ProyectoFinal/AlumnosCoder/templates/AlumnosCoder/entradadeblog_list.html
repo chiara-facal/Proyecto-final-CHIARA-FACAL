@@ -1,0 +1,14 @@
+{% extends "AlumnosCoder/base.html" %} 
+{% load static %}
+
+{%block main%}
+
+<br>
+<br>
+<ul>
+    {% for entrada in entradas %}
+    <li> {{entrada.titulo_entrada}}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
