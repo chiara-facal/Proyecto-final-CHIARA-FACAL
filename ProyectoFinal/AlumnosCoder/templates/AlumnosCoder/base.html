@@ -32,6 +32,18 @@
                 <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="{% url 'entradadeblog_list' %}">Entradas</a>
                 </li>
+                {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'salir' %}">{{ user.username }} | Salir</a>
+                  </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'registro' %}">Registrarse</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'ingresar' %}">Ingresar</a>
+                  </li>
+                  {% endif %}
             </div>
           </div>
         </nav>
