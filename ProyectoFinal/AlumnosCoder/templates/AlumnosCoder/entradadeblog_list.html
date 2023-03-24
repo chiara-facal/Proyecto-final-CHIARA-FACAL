@@ -5,10 +5,27 @@
 
 <br>
 <br>
+{%if not entradas%}
+    <h1>No hay entradas </h1>
+
+{%else%}
+
+<h1>Todas las entradas</h1>
+<br>
 <ul>
     {% for entrada in entradas %}
-    <li> {{entrada.titulo_entrada}} por {{entrada.editor}}</li>
-    {% endfor %}
+    <li> {{entrada.titulo_entrada}} por {{entrada.editor}}
+    <a href="{% url 'entrada_detalle' entrada.id %}">Detalle</a>
+    {% if user.is_authenticated and user.id == entrada.editor.id %}
+            <a href="{% url 'actualizar_entrada' entrada.id %}">Actualizar</a>
+            <a href="{% url 'borrar_entrada' entrada.id %}">Borrar</a> 
+    {% endif %}
+
+</li>
+
+{% endfor %}
 </ul>
+
+{% endif %}
 
 {% endblock %}

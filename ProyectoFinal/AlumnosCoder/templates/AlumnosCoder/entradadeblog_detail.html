@@ -1,0 +1,16 @@
+{% extends "AlumnosCoder/base.html" %} 
+{% load static %}
+
+{%block main%}
+
+<div class="d-flex justify-content-center">
+    <div class="col col-8" style="text-align: center;">
+        <h1 class="mt-5">{{ entrada.titulo_entrada }} por {{entrada.editor}}</h1>
+        <h2 class="mt-5">{{ entrada.subtitulo_entrada }}</h2>
+        <p><img height="256px" src="{{entrada.imagen_url}}"></p>
+        <p class="lead">{{ entrada.descripcion}}</p>
+        
+    </div>
+</div>
+
+{% endblock %}

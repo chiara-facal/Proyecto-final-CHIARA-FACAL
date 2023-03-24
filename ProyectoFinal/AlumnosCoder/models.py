@@ -9,5 +9,13 @@ class EntradaDeBlog(models.Model):
     editor = models.ForeignKey(to=User,on_delete=models.CASCADE,default = 1,related_name="editor")
     imagen = models.ImageField(upload_to="entradas", null=True, blank=True)
 
+    @property
+    def imagen_url(self):
+        return self.imagen.url if self.imagen else ''
+
+
+    def __str__(self):
+        return f"{self.id} - {self.carousel_caption_title}"
+
     def __str__(self):
         return f' {self.titulo_entrada} - {self.subtitulo_entrada} '

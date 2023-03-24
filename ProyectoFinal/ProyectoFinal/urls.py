@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from AlumnosCoder.views import index, Entradalist, Registro, Ingresar, Salir
+from AlumnosCoder.views import index, Entradalist, Registro, Ingresar, Salir, Mispost, Detalle, Actualizar, Borrar
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -23,6 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name="inicio"),
     path('entradas/listado', Entradalist.as_view(), name = "entradadeblog_list"),
+    path('entradas/mis-entradas', Mispost.as_view(), name = "mis_posts"),
+    path('entrada/<pk>/detalle', Detalle.as_view(), name = "entrada_detalle"),
+    path('entrada/<pk>/editar',Actualizar.as_view(), name="actualizar_entrada"),
+    path('entrada/<pk>/borrar', Borrar.as_view(), name = "borrar_entrada"),
     path('usuario/registro', Registro.as_view(), name = "registro"),
     path('usuario/ingresar', Ingresar.as_view(), name = "ingresar"),
     path('usuario/salir', Salir.as_view(), name = "salir"),
