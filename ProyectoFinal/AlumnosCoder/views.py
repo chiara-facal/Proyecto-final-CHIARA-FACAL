@@ -41,6 +41,20 @@ class Borrar(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         usuario_id = self.request.user.id
         entrada_id =  self.kwargs.get("pk")
         return EntradaDeBlog.objects.filter(editor=usuario_id, id=entrada_id).exists()
+    
+class Crear(LoginRequiredMixin, CreateView):
+    model = EntradaDeBlog
+    success_url = reverse_lazy('entradadeblog_list')
+    fields = "__all__"
+
+class BuscarEntrada(ListView):
+    model = EntradaDeBlog
+    context_object_name = "entradas"
+    def get_queryset(self):
+        criterio = self.request.GET.get("criterio")
+        resultado = EntradaDeBlog.objects.filter(titulo_entrada__icontains=criterio).all()
+        return resultado 
+    
 
 class Registro(CreateView):
     form_class = UserCreationForm

@@ -37,6 +37,10 @@
                     <a class="nav-link active" href="{% url 'mis_posts' %}">Mis entradas</a>
                   </li>
                 <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'crear_entrada' %}">Nueva entrada</a>
+                      </li>
+                    <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{% url 'salir' %}">{{ user.username }} | Salir</a>
                   </li>
                 {% else %}
@@ -47,6 +51,10 @@
                     <a class="nav-link active" aria-current="page" href="{% url 'ingresar' %}">Ingresar</a>
                   </li>
                   {% endif %}
+                  <form class="d-flex" action = "{% url 'buscar_entrada' %}">
+                    <input class="form-control me-2" name = "criterio" type="search" placeholder="Buscar entrada" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                  </form>
             </div>
           </div>
         </nav>
