@@ -1,0 +1,21 @@
+{% extends "AlumnosCoder/base.html" %} 
+{% load static %}
+
+{%block main%}
+
+<br>
+<br>
+
+<div style="margin-top:40px">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form.as_p}}
+        {% if user.usuario %}
+        <input type="submit" value="Actualizar">
+        {% else %}
+        <input type="submit" value="Crear perfil">
+        {% endif %}
+    </form>
+    </div>
+
+{% endblock %}

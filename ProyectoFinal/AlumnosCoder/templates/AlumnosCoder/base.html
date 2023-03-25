@@ -12,6 +12,23 @@
     <link rel="stylesheet" href="{% static 'base_template.css' %}">
 
 
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
 <link href="../../static/AlumnosCoder/css/base_template.css" rel="stylesheet">
     <link href="base_template.css" rel="stylesheet">
   </head>
@@ -41,6 +58,20 @@
                         <a class="nav-link active" href="{% url 'crear_entrada' %}">Nueva entrada</a>
                       </li>
                     <li class="nav-item">
+                  {% if user.usuario %}
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'actualizar_perfil' user.usuario.id %}">Editar Perfil</a>
+                      </li>
+                  {%if user.usuario.avatar_url %}
+                      <img src="{{user.usuario.avatar_url}}" height="100%" width="48px" style="border-radius: 50%;">
+                    {% else %}
+                      <a class="navbar-brand" href="https://getbootstrap.com/docs/5.0/examples/carousel/#">Carousel</a>
+                    {% endif %}   
+                      {% else %}
+                      <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'crear_perfil' %}">Crear Perfil</a>
+                      </li>
+                      {% endif %}
                     <a class="nav-link active" aria-current="page" href="{% url 'salir' %}">{{ user.username }} | Salir</a>
                   </li>
                 {% else %}
