@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from AlumnosCoder.views import index, Entradalist, Registro, Ingresar, Salir, Mispost, Detalle, Actualizar, Borrar, Crear, BuscarEntrada
-from PerfilMensaje.views import CrearPerfil, ActualizarPerfil
+from PerfilMensaje.views import CrearPerfil, ActualizarPerfil, CrearMensaje, BorrarMensaje, ListaMensaje
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -35,6 +35,9 @@ urlpatterns = [
     path('usuario/salir', Salir.as_view(), name = "salir"),
     path('perfil/crear', CrearPerfil.as_view(), name = "crear_perfil"),
     path('perfil/<pk>/actualizar', ActualizarPerfil.as_view(), name = "actualizar_perfil"),
+    path('mensaje/crear', CrearMensaje.as_view(),name = "crear_mensaje" ),
+    path('mensaje/<pk>/borrar', BorrarMensaje.as_view(), name = "borrar_mensajes"),
+    path('mensaje/lista', ListaMensaje.as_view(), name = "lista_mensajes"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

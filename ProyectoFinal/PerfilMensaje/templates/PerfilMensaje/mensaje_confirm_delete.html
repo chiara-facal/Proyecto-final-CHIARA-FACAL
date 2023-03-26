@@ -1,0 +1,19 @@
+{% extends "AlumnosCoder/base.html" %} 
+{% load static %}
+
+{%block main%}
+
+<br>
+<br>
+
+<h1>Borrar mensajes</h1>
+<br>
+
+<p style="margin-top: 10px;">Estas seguro que quiere borrar el mensaje de {{ mensaje.email }}? </p>
+<form method="post">
+    {% csrf_token %}
+    <input class="btn btn-danger" type="submit" value="Borrar">
+    <a class="btn btn-primary" href="{% url 'lista_mensajes' %}">Cancelar</a>
+</form>
+
+{% endblock %}

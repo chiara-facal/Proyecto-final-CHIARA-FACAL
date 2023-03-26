@@ -72,6 +72,12 @@
                         <a class="nav-link active" href="{% url 'crear_perfil' %}">Crear Perfil</a>
                       </li>
                       {% endif %}
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{% url 'crear_mensaje' %}"> Enviar Mensajes</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link active" href="{% url 'lista_mensajes' %}">Mensajes</a>
+                    </li>
                     <a class="nav-link active" aria-current="page" href="{% url 'salir' %}">{{ user.username }} | Salir</a>
                   </li>
                 {% else %}

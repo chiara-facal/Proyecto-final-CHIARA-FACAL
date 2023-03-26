@@ -1,0 +1,28 @@
+{% extends "AlumnosCoder/base.html" %} 
+{% load static %}
+
+{%block main%}
+
+<br>
+<br>
+
+<div style="margin-top: 40px;">
+
+    {%if not mensajes%}
+    <h1>No hay mensajes</h1>
+    {% else %}
+    <h1> Mis Mensajes </h1>
+   <ul>
+       {%  for mensaje in mensajes  %}
+       <li> Tienes un mensaje de de: {{mensaje.email}} 
+           <br> 
+           {{ mensaje.mensaje }}
+           <br>
+           <a href="{% url 'borrar_mensajes' mensaje.id %}">Borrar</a>
+       </li>
+       {% endfor %}
+   </ul>
+   </div>
+   {% endif %}
+
+{% endblock %}
