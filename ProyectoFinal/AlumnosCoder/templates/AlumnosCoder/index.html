@@ -3,4 +3,24 @@
 
 {%block main%}
 
+<br>
+<br>
+
+<h1>Bienvenido a AlumnosCoder</h1>
+<h3>El blog predilecto de los alumnos de Coderhouse!</h3>
+
+<br>
+<br>
+
+<div class="row">
+    {% for entrada in entradas %}
+    <div class="col-lg-4">
+      <img src="{{entrada.imagen_url}}" height="144" width="144">
+      <h2>{{entrada.titulo_entrada}}</h2>
+      <p>{{entrada.descripcion}}</p>
+      <p><a class="btn btn-secondary" href="{%url 'entrada_detalle' entrada.id %}">Ver detalle »</a></p>
+    </div><!-- /.col-lg-4 -->
+  
+    {% endfor %}
+
 {% endblock %}

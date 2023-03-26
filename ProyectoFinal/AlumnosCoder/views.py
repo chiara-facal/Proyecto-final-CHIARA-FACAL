@@ -7,8 +7,8 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 
 def index(request):
-    posteos = EntradaDeBlog.objects.all()
-    return render(request, "AlumnosCoder/index.html", {"posteos": posteos})
+    entradas = EntradaDeBlog.objects.all()
+    return render(request, "AlumnosCoder/index.html", {"entradas": entradas})
 
 class Entradalist(ListView):
     model = EntradaDeBlog
