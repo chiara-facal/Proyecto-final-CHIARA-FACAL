@@ -40,3 +40,5 @@ class ListaMensaje(LoginRequiredMixin, ListView):
     def get_queryset(self):
         import pdb; pdb.set_trace
         return Mensaje.objects.filter(para_quien=self.request.user).all()
+    
+

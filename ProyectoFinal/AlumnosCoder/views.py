@@ -67,3 +67,6 @@ class Ingresar(LoginView):
 
 class Salir(LogoutView):
     template_name = "registro/salir.html"
+
+def About(request):
+    return render(request, "AlumnosCoder/about.html")
