@@ -12,6 +12,11 @@
 <br>
 <br>
 
+{%if not entradas%}
+    <h1>No hay entradas </h1>
+
+{%else%}
+
 <div class="row">
     {% for entrada in entradas %}
     <div class="col-lg-4">
@@ -22,5 +27,7 @@
     </div><!-- /.col-lg-4 -->
   
     {% endfor %}
+  
+{% endif %}  
 
 {% endblock %}
