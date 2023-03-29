@@ -2,6 +2,10 @@
 
 Proyecto final del curso de Python de CoderHouse. Realizado por Chiara Facal
 
+**LINK AL VIDEO DEMOSTRATIVO**
+
+https://youtu.be/3ShDU22Eiqk
+
 **Cosas que realicé**
 
 - creé un proyecto en Django, con dos aplicaciones, una para la creación/edición/borrado de posts y otra para la creación del usuario y la mensajería
